@@ -5,8 +5,11 @@ import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.RelationshipEntity;
 import org.springframework.data.neo4j.annotation.StartNode;
 
-@RelationshipEntity
+@RelationshipEntity(type = "HAS_RATED")
 public class Rated {
+
+    public static final int RATING_RANGE = 5;
+
     @GraphId
     private Long id;
 
@@ -26,5 +29,17 @@ public class Rated {
 
     public Integer getRating() {
         return rating;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 }

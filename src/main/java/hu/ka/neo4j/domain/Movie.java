@@ -1,5 +1,6 @@
 package hu.ka.neo4j.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.neo4j.graphdb.Direction;
@@ -15,7 +16,7 @@ public class Movie {
     private String title;
 
     @RelatedTo(type = "ACTED_IN", direction = Direction.INCOMING)
-    private Set<Actor> actors;
+    private Set<Actor> actors = new HashSet<Actor>();
 
     public Movie() {
     }

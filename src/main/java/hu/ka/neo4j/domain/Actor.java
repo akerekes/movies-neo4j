@@ -18,6 +18,17 @@ public class Actor {
     @RelatedTo(type = "ACTED_IN", direction = Direction.OUTGOING)
     Set<Movie> movies = new HashSet<Movie>();
 
+    @Indexed(unique = true, indexName = "actor_name")
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 //    @RelatedToVia(type = "ACTED_IN", direction = Direction.OUTGOING)
 //    Set<ActedIn> actedIns = new HashSet<ActedIn>();
 
